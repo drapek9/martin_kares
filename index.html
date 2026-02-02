@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin Kareš | Realitní makléř</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">Martin Kareš</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Domů</a></li>
+                <li><a href="o-mne.html">O mně</a></li>
+                <li><a href="sluzby.html">Služby</a></li>
+                <li><a href="nemovitosti.html">Nemovitosti</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-video-wrapper">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="video/video.mp4" type="video/mp4">
+                <!-- Fallback pokud video není k dispozici -->
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-video-credit">
+                <a href="https://www.youtube.com/@PalmViewProductions" target="_blank" rel="noopener noreferrer">Video: Palm View Productions</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Martin Kareš</h1>
+                <p class="hero-subtitle">Váš důvěryhodný partner při prodeji nemovitostí</p>
+                <p class="hero-description">Osobní přístup, profesionální servis a transparentní komunikace. Společně najdeme nejlepší řešení pro vaši nemovitost.</p>
+                <a href="kontakt.html" class="btn btn-primary">Nezávazná konzultace</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- O mně Preview -->
+    <section class="section about-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>O mně</h2>
+            </div>
+            <div class="about-preview-content">
+                <div class="about-preview-text">
+                    <p>Jsem realitní makléř s více než 15 lety zkušeností v oboru. Specializuji se na prodej nemovitostí, prodej podílů a poskytování komplexního právního servisu. Mým cílem je nejen prodat vaši nemovitost, ale zajistit vám klid a jistotu během celého procesu.</p>
+                    <p>Věřím v osobní přístup a transparentní komunikaci. Každý klient je pro mě jedinečný a zaslouží si individuální řešení šité na míru jeho potřebám.</p>
+                    <a href="o-mne.html" class="btn btn-secondary">Více o mně</a>
+                </div>
+                <div class="about-preview-image">
+                    <div class="placeholder-image">
+                        <img src="fotky/personal_photo.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Služby Preview -->
+    <section class="section services-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Služby</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
+                        </svg>
+                    </div>
+                    <h3>Prodej nemovitostí</h3>
+                    <p>Kompletní servis při prodeji vaší nemovitosti od ocenění až po předání klíčů.</p>
+                    <a href="sluzby/prodej-nemovitosti.html" class="btn btn-link">Více informací →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                            <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 16H5V5h2v3h10V5h2v14z"/>
+                        </svg>
+                    </div>
+                    <h3>Prodej podílů</h3>
+                    <p>Odborná pomoc při prodeji podílů v nemovitostech s důrazem na právní jistotu.</p>
+                    <a href="sluzby/prodej-podilu.html" class="btn btn-link">Více informací →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                    </div>
+                    <h3>Právní servis</h3>
+                    <p>Kompletní právní servis a realitní poradenství pro vaše bezpečí a jistotu.</p>
+                    <a href="sluzby/pravni-servis.html" class="btn btn-link">Více informací →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nemovitosti Preview -->
+    <section class="section properties-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nemovitosti</h2>
+            </div>
+            <div class="properties-grid">
+                <a href="nemovitosti/detail.html" class="property-card animate-on-scroll">
+                    <div class="property-card-image">
+                        <img src="fotky/fotka_1.webp" alt="Družstevní byt 3+1 v novostavbě">
+                        <div class="property-card-status">K prodeji</div>
+                    </div>
+                    <div class="property-card-content">
+                        <h3 class="property-card-title">Prodej bytu, 3+1 ve Všedradicích</h3>
+                        <div class="property-card-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            obec Všeradice
+                        </div>
+                        <div class="property-card-params">
+                            <span class="property-card-param">3+1</span>
+                            <span class="property-card-param">84 m²</span>
+                            <span class="property-card-param">byt ve standardním stavu</span>
+                        </div>
+                        <div class="property-card-price">4 750 000 Kč</div>
+                    </div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: var(--spacing-lg);">
+                <a href="nemovitosti.html" class="btn btn-link">Zobrazit všechny nemovitosti →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference -->
+    <section class="section references">
+        <div class="container">
+            <div class="section-header">
+                <h2>Reference</h2>
+            </div>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <div class="reference-content">
+                        <p class="reference-text">"Pan Kareš zprostředkovával prodej bytu, který jsem kupovala, a mohu ho vřele doporučit. Má velice profesionální přístup a dlouholeté zkušenosti v oboru, je pečlivý, rychlý, vše ihned zařídí, klient cítí, že je jeho osobním zájmem, aby celá transakce proběhla v klidu a k naprosté spokojenosti obou stran. Pan Kareš mi vyšel ve všem vstříc, na mé dotazy ihned odpovídal, veškeré podklady zasílal obratem, celou dobu jsem si byla naprosto jistá, že má vše pod kontrolou. Pan Kareš je rodilý makléř, který dělá čest svému oboru a mnoho jeho kolegů by se od něj mohlo leccos přiučit."</p>
+                    </div>
+                    <div class="reference-author">
+                        <strong>Lenka Zemánková</strong>
+                        <span>Praha, Tunelářů</span>
+                    </div>
+                </div>
+                <div class="reference-card">
+                    <div class="reference-content">
+                        <p class="reference-text">"Se službami pana Kareše jsem byla naprosto spokojená. Kompletní servis a jednání byly vynikající a mohu jen doporučit."</p>
+                    </div>
+                    <div class="reference-author">
+                        <strong>Kristýna Plačková</strong>
+                    </div>
+                </div>
+                <div class="reference-card">
+                    <div class="reference-content">
+                        <p class="reference-text">"Pana makléře mohu vřele doporučit, je s ním výborná spolupráce, velice vstřícné jednání a perfektní komunikace. Realitní makléři z jiných kanceláří by se od pana Kareše měli učit. Děkujeme za zprostředkování koupě našeho domu a přejeme mnoho úspěchů. Opravdu jsme velice spokojeni."</p>
+                    </div>
+                    <div class="reference-author">
+                        <strong>Jiří Rothkögel</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="reference.html" class="btn btn-secondary">Všechny reference</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifikáty -->
+    <section class="section certificates">
+        <div class="container">
+            <div class="section-header">
+                <h2>Odborné zázemí</h2>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <div class="certificate-icon">✓</div>
+                    <p>Licencovaný realitní makléř</p>
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-icon">✓</div>
+                    <p>15+ let zkušeností</p>
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-icon">✓</div>
+                    <p>Právní vzdělání</p>
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-icon">✓</div>
+                    <p>Člen Komory realitních makléřů</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Máte dotaz nebo potřebujete konzultaci?</h2>
+                <p>Rád vám pomohu najít nejlepší řešení pro vaši situaci. Kontaktujte mě pro nezávaznou konzultaci.</p>
+                <a href="kontakt.html" class="btn btn-primary">Kontaktovat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Martin Kareš</h3>
+                    <p>Realitní makléř</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="sluzby.html">Služby</a></li>
+                        <li><a href="nemovitosti.html">Nemovitosti</a></li>
+                        <li><a href="reference.html">Reference</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>Email: m.kares@dumrealit.cz</p>
+                    <p>Telefon: +420 724 322 483</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Martin Kareš. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

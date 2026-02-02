@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Martin Kareš</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">Martin Kareš</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="o-mne.html">O mně</a></li>
+                <li><a href="sluzby.html">Služby</a></li>
+                <li><a href="nemovitosti.html">Nemovitosti</a></li>
+                <li><a href="reference.html">Reference</a></li>
+                <li><a href="kontakt.html" class="active">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Kontakt</h1>
+            <p>Rád vám pomohu s vašimi realitními potřebami</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 3rem;">
+                <div>
+                    <h2>Kontaktní informace</h2>
+                    <div style="margin-top: 2rem;">
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Telefon</h3>
+                            <p style="font-size: 1.125rem;">+420 724 322 483</p>
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Email</h3>
+                            <p style="font-size: 1.125rem;">m.kares@dumrealit.cz</p>
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <h3 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Konzultace</h3>
+                            <p style="font-size: 1.125rem;">Po telefonické nebo emailové domluvě</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Napište mi</h2>
+                    <form class="contact-form" style="margin-top: 2rem;">
+                        <div class="form-group">
+                            <label for="name">Jméno a příjmení *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Zpráva *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content-section contact-reasons-card">
+                <h2>Proč mě kontaktovat</h2>
+                <p style="margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">Nabízím nezávaznou konzultaci, kde společně probereme vaši situaci a navrhnu nejvhodnější řešení. Neváhejte mě kontaktovat s jakýmkoli dotazem ohledně prodeje nemovitostí, prodeje podílů nebo právního servisu.</p>
+                <div class="contact-reasons-grid">
+                    <div class="contact-reason-item">
+                        <h3>Rychlá odpověď</h3>
+                        <p>Odpovím na vaše dotazy do 24 hodin.</p>
+                    </div>
+                    <div class="contact-reason-item">
+                        <h3>Nezávazná konzultace</h3>
+                        <p>První konzultace je zdarma a bez závazků.</p>
+                    </div>
+                    <div class="contact-reason-item">
+                        <h3>Individuální přístup</h3>
+                        <p>Každý klient je pro mě jedinečný a zaslouží si individuální řešení.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Martin Kareš</h3>
+                    <p>Realitní makléř</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="sluzby.html">Služby</a></li>
+                        <li><a href="nemovitosti.html">Nemovitosti</a></li>
+                        <li><a href="reference.html">Reference</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>Email: m.kares@dumrealit.cz</p>
+                    <p>Telefon: +420 724 322 483</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Martin Kareš. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
