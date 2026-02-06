@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reference text expand/collapse
     initReferenceToggle();
     
+    // Certificates modal
+    initCertificatesModal();
+    
     // Scroll animations
     initScrollAnimations();
 });
@@ -186,6 +189,64 @@ function clearError(input) {
         errorDiv.remove();
     }
     input.style.borderColor = '';
+}
+
+function initCertificatesModal() {
+    const toggleBtn = document.querySelector('.certificates-toggle-btn');
+    const modal = document.getElementById('certificatesModal');
+    const closeBtn = document.querySelector('.certificates-modal-close');
+    const overlay = document.querySelector('.certificates-modal-overlay');
+    const modalContent = document.querySelector('.certificates-modal-content');
+    
+    if (toggleBtn && modal) {
+        toggleBtn.addEventListener('click', function() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Zavřít při kliknutí na overlay (pozadí)
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+    
+    // Zavřít při kliknutí na modal samotný nebo na prázdný prostor v modal-content
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            const target = e.target;
+            const isImage = target.classList.contains('certificate-image');
+            const isImageWrapper = target.classList.contains('certificate-image-wrapper');
+            const isCloseBtn = target.closest('.certificates-modal-close');
+            
+            // Zavřít pokud kliknutí bylo na:
+            // - modal samotný (tmavé pozadí)
+            // - modal-content nebo grid (prázdný prostor mezi obrázky)
+            // ale ne na obrázky nebo jejich wrapper
+            if (target === modal) {
+                closeModal();
+            } else if ((target === modalContent || target.classList.contains('certificates-modal-grid')) && 
+                       !isImage && !isImageWrapper && !isCloseBtn) {
+                closeModal();
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
 }
 
 function initScrollAnimations() {
