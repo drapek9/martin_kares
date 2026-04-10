@@ -1,5 +1,8 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Analytics (GA4) - load only after consent
+    initAnalyticsConsent();
+
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -68,6 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (isValid) {
+                gaEvent('contact_form_submit_success', {
+                    form_name: 'contact_form',
+                    page_name: getPageName()
+                });
                 // Here you would normally send the form data to a server
                 alert('Děkujeme za vaši zprávu! Brzy se vám ozveme.');
                 this.reset();
@@ -84,6 +91,171 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll animations
     initScrollAnimations();
 });
+
+const GA4_MEASUREMENT_ID = 'G-NGN23F0YY5';
+const ANALYTICS_CONSENT_KEY = 'mk_analytics_consent_v1'; // 'granted' | 'denied'
+
+function initAnalyticsConsent() {
+    const consent = getAnalyticsConsent();
+
+    if (consent === 'granted') {
+        loadGoogleAnalytics();
+        bindAnalyticsEvents();
+        trackPageVisit();
+        return;
+    }
+
+    if (consent === 'denied') {
+        // Explicitly denied: don't load GA and don't show the banner again.
+        return;
+    }
+
+    showAnalyticsConsentBanner();
+}
+
+function getAnalyticsConsent() {
+    try {
+        return localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    } catch (_) {
+        return null;
+    }
+}
+
+function setAnalyticsConsent(value) {
+    try {
+        localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+    } catch (_) {
+        // ignore
+    }
+}
+
+function showAnalyticsConsentBanner() {
+    if (document.querySelector('.consent-banner')) return;
+
+    const banner = document.createElement('div');
+    banner.className = 'consent-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Nastavení analytiky');
+
+    banner.innerHTML = `
+        <div class="consent-banner__inner">
+            <div class="consent-banner__text">
+                Tento web používá analytiku (Google Analytics) pro měření návštěvnosti a zlepšení obsahu. Analýza se spustí pouze po vašem souhlasu.
+            </div>
+            <div class="consent-banner__actions">
+                <button type="button" class="btn btn-secondary consent-banner__btn" data-consent-action="deny">Odmítnout</button>
+                <button type="button" class="btn btn-primary consent-banner__btn" data-consent-action="accept">OK</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    banner.addEventListener('click', function(e) {
+        const btn = e.target.closest('[data-consent-action]');
+        if (!btn) return;
+
+        const action = btn.getAttribute('data-consent-action');
+        if (action === 'accept') {
+            setAnalyticsConsent('granted');
+            banner.remove();
+            loadGoogleAnalytics();
+            bindAnalyticsEvents();
+            trackPageVisit();
+            return;
+        }
+
+        if (action === 'deny') {
+            setAnalyticsConsent('denied');
+            banner.remove();
+        }
+    });
+}
+
+function loadGoogleAnalytics() {
+    if (window.__ga4_loaded) return;
+    window.__ga4_loaded = true;
+
+    // Load gtag.js only after consent
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA4_MEASUREMENT_ID)}`;
+    document.head.appendChild(gtagScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_MEASUREMENT_ID, {
+        send_page_view: true
+    });
+}
+
+function gaEvent(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', name, params || {});
+}
+
+function getPageName() {
+    const path = (location.pathname || '').toLowerCase();
+    const file = path.split('/').pop() || '';
+
+    const map = {
+        '': 'Domů',
+        'index.html': 'Domů',
+        'o-mne.html': 'O mně',
+        'sluzby.html': 'Služby',
+        'nemovitosti.html': 'Nemovitosti',
+        'reference.html': 'Reference',
+        'kontakt.html': 'Kontakt'
+    };
+
+    return map[file] || document.title || file || 'Neznámá stránka';
+}
+
+function trackPageVisit() {
+    gaEvent('page_visit', {
+        page_name: getPageName(),
+        page_path: location.pathname || '',
+        page_title: document.title || ''
+    });
+}
+
+function bindAnalyticsEvents() {
+    if (window.__ga_events_bound) return;
+    window.__ga_events_bound = true;
+
+    // Track service clicks (any link leading to sluzby/*)
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const href = (link.getAttribute('href') || '').trim();
+        if (!href) return;
+
+        const isServiceLink =
+            href.startsWith('sluzby/') ||
+            href.includes('/sluzby/') ||
+            href.startsWith('sluzby.html#');
+
+        if (!isServiceLink) return;
+
+        const fromCard = link.closest('.service-card');
+        const titleEl = fromCard ? fromCard.querySelector('h3') : null;
+        const serviceName =
+            link.getAttribute('data-ga-service') ||
+            (titleEl ? titleEl.textContent.trim() : '') ||
+            link.textContent.trim() ||
+            href;
+
+        gaEvent('service_click', {
+            service_name: serviceName,
+            service_href: href,
+            page_name: getPageName()
+        });
+    });
+}
 
 function initReferenceToggle() {
     const referenceCards = document.querySelectorAll('.reference-card');
