@@ -304,24 +304,6 @@ a:hover {
     z-index: 1;
 }
 
-.hero-video-credit {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    z-index: 3;
-    font-size: 0.65rem;
-}
-
-.hero-video-credit a {
-    color: rgba(129, 129, 129, 0.5);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.hero-video-credit a:hover {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 .hero .container {
     position: relative;
     z-index: 2;
